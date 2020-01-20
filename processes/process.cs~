@@ -10,10 +10,10 @@ namespace processes
         public string ProcessName { get; set; }
         public int ProcessId { get; set; }
         public double MemoryUsage { get; set; }
-        public string RunningTime { get; set; }
+        public DateTime RunningTime { get; set; }
         public DateTime StartTime { get; set; }
 
-        public Proces(string processName, int processId, double memoryUsage, string runningTime, DateTime startTime)
+        public Proces(string processName, int processId, double memoryUsage, DateTime runningTime, DateTime startTime)
         {
             ProcessName = processName;
             ProcessId = processId;

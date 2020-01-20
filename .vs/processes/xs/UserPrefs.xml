@@ -1,16 +1,18 @@
 ﻿<Properties StartupConfiguration="{6046A7F4-D26F-4D64-9BA6-F392013D2908}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="processes/Program.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="processes/process.cs">
     <Files>
-      <File FileName="processes/Program.cs" Line="1" Column="1" />
+      <File FileName="processes/Program.cs" Line="19" Column="53" />
+      <File FileName="processes/process.cs" Line="11" Column="43" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="processes" expanded="True" selected="True" />
+          <Node name="processes" expanded="True">
+            <Node name="processes" expanded="True">
+              <Node name="process.cs" selected="True" />
+            </Node>
+          </Node>
         </State>
-      </Pad>
-      <Pad Id="MonoDevelop.Debugger.WatchPad">
-        <State />
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>

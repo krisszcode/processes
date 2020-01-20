@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 
 
@@ -8,7 +9,13 @@ namespace processes
     {
         static void Main()
         {
+
             Process[] processlist = Process.GetProcesses();
+            List<Proces> ListOfProcesses = new List<Proces>();
+            DateTime now = DateTime.Now;
+           
+            
+
 
             foreach (Process theprocess in processlist)
             {
@@ -16,7 +23,7 @@ namespace processes
                 {
                     try
                     {
-                        DateTime now = DateTime.Now;
+                       
                         
                         DateTime StartTime = theprocess.StartTime;
                         DateTime EndTime = now;
@@ -29,7 +36,7 @@ namespace processes
                                         t.Minutes,
                                         t.Seconds,
                                         t.Milliseconds);
-                        Console.WriteLine(answer);
+                        ListOfProcesses.Add(new Proces(theprocess.ProcessName, theprocess.Id, theprocess.WorkingSet64, answer, now));
                         Console.WriteLine("Process Name: {0} ID: {1} Memory: {2} MB  Start time: {3} Running time: {4}",
                             theprocess.ProcessName, theprocess.Id, (theprocess.WorkingSet64 / 1024f / 1024f), theprocess.StartTime, answer);
                     }
@@ -43,12 +50,15 @@ namespace processes
 
 
                 }
-
-            }
-
+              
 
         }
+            
+    }
+            
+
+     }
 
 
     }
-}
+
