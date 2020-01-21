@@ -4,6 +4,7 @@ using System.Text;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Threading.Tasks;
 
 namespace processes
 {
@@ -16,14 +17,17 @@ namespace processes
         public string RunningTime { get; set; }
         public DateTime StartTime { get; set; }
 
+        public double CpuUsage { get; set; }
 
-        public Proces() { }
+
+    public Proces() { }
 
         public Proces(string processName = "No Name",
             int processId = 0,
             double memoryUsage = 0,
             string runningTime = "Nope",
-            DateTime startTime = default(DateTime)
+            DateTime startTime = default(DateTime),
+            double cpuUsage = 0
             )
         {
             ProcessName = processName;
@@ -31,11 +35,12 @@ namespace processes
             MemoryUsage = memoryUsage;
             RunningTime = runningTime;
             StartTime = startTime;
+            CpuUsage = cpuUsage;
         }
 
         public override string ToString()
         {
-            return string.Format($"{ProcessName} {ProcessId} {MemoryUsage} {RunningTime} {StartTime}");
+            return string.Format($"{ProcessName} {ProcessId} {MemoryUsage} {RunningTime} {StartTime} {CpuUsage}");
         }
         public void GetObjectData(SerializationInfo info, StreamingContext context)
         {
@@ -44,6 +49,8 @@ namespace processes
             info.AddValue("Memoryusage", MemoryUsage);
             info.AddValue("Runningtime", RunningTime);
             info.AddValue("Starttime", StartTime);
+            info.AddValue("CpuUsage", CpuUsage);
+
 
         }
 
@@ -54,6 +61,8 @@ namespace processes
             MemoryUsage = (double)info.GetValue("Memoryusage", typeof(double));
             RunningTime = (string)info.GetValue("Runningtime", typeof(string));
             StartTime = (DateTime)info.GetValue("Starttime", typeof(DateTime));
+            CpuUsage = (double)info.GetValue("Cpuusage", typeof(double));
+
         }
     }
 }

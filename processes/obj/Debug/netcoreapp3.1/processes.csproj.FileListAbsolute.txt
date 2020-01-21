@@ -30,3 +30,4 @@ C:\C#\processes\processes\obj\Debug\netcoreapp3.1\processes.AssemblyInfoInputs.c
 C:\C#\processes\processes\obj\Debug\netcoreapp3.1\processes.AssemblyInfo.cs
 C:\C#\processes\processes\obj\Debug\netcoreapp3.1\processes.dll
 C:\C#\processes\processes\obj\Debug\netcoreapp3.1\processes.pdb
+C:\C#\processes\processes\obj\Debug\netcoreapp3.1\processes.csprojAssemblyReference.cache
