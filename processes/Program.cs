@@ -19,15 +19,16 @@ namespace processes
             List<Proces> ListOfProcesses = new List<Proces>();
             DateTime now = DateTime.Now;
 
-            async Task<double> GetCpuUsageForProcess()
+
+            async Task<double> GetCpuUsageForProcess(Process theprocess)
             {
                 var startTime = DateTime.UtcNow;
-                var startCpuUsage = Process.GetCurrentProcess().TotalProcessorTime;
+                var startCpuUsage = theprocess.TotalProcessorTime;
 
-                await Task.Delay(0);
+                await Task.Delay(150);
 
                 var endTime = DateTime.UtcNow;
-                var endCpuUsage = Process.GetCurrentProcess().TotalProcessorTime;
+                var endCpuUsage = theprocess.TotalProcessorTime;
 
                 var cpuUsedMs = (endCpuUsage - startCpuUsage).TotalMilliseconds;
                 var totalMsPassed = (endTime - startTime).TotalMilliseconds;
@@ -37,8 +38,7 @@ namespace processes
                 return cpuUsageTotal * 100;
             }
             
-            var result = GetCpuUsageForProcess();
-            double CpuUsage = Math.Round(result.Result, 2);
+
 
             foreach (Process theprocess in processlist)
             {
@@ -46,8 +46,10 @@ namespace processes
                 {
                     try
                     {
-                       
                         
+                        var result = GetCpuUsageForProcess(theprocess);
+                        double CpuUsage = Math.Round(result.Result, 2);
+
                         DateTime StartTime = theprocess.StartTime;
                         DateTime EndTime = now;
                         long diffTicks = (EndTime - StartTime).Ticks;
@@ -59,9 +61,9 @@ namespace processes
                                         t.Minutes,
                                         t.Seconds,
                                         t.Milliseconds);
-                        ListOfProcesses.Add(new Proces(theprocess.ProcessName, theprocess.Id, theprocess.WorkingSet64 / 1024f / 1024f, answer, theprocess.StartTime, CpuUsage));
-//                        Console.WriteLine("Process Name: {0} ID: {1} Memory: {2} MB  Start time: {3} Running time: {4}",
-//                            theprocess.ProcessName, theprocess.Id, (theprocess.WorkingSet64 / 1024f / 1024f), theprocess.StartTime, answer);
+                        ListOfProcesses.Add(new Proces(theprocess.ProcessName, theprocess.Id, theprocess.WorkingSet64 / 1024f / 1024f, answer, theprocess.StartTime, CpuUsage, theprocess.Threads.Count));
+                       // Console.WriteLine("Process Name: {0} ID: {1} Memory: {2} MB  Start time: {3} Running time: {4} CPU Usage: {5}",
+                          //  theprocess.ProcessName, theprocess.Id, (theprocess.WorkingSet64 / 1024f / 1024f), theprocess.StartTime, answer, CpuUsage, theprocess.Threads.Count);
 
                         
 
@@ -90,7 +92,7 @@ namespace processes
                     foreach (Proces a in ListOfProcesses)
                     {
                         Console.WriteLine(a.ToString());
-                    }
+                    } 
 
 
 

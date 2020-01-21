@@ -18,16 +18,18 @@ namespace processes
         public DateTime StartTime { get; set; }
 
         public double CpuUsage { get; set; }
+        public int Threads { get; set; }
 
 
-    public Proces() { }
+        public Proces() { }
 
         public Proces(string processName = "No Name",
             int processId = 0,
             double memoryUsage = 0,
             string runningTime = "Nope",
             DateTime startTime = default(DateTime),
-            double cpuUsage = 0
+            double cpuUsage = 0,
+            int threads = 0
             )
         {
             ProcessName = processName;
@@ -36,11 +38,12 @@ namespace processes
             RunningTime = runningTime;
             StartTime = startTime;
             CpuUsage = cpuUsage;
+            Threads = threads;
         }
 
         public override string ToString()
         {
-            return string.Format($"{ProcessName} {ProcessId} {MemoryUsage} {RunningTime} {StartTime} {CpuUsage}");
+            return string.Format($"{ProcessName} {ProcessId} {MemoryUsage} {RunningTime} {StartTime} {CpuUsage} {Threads}");
         }
         public void GetObjectData(SerializationInfo info, StreamingContext context)
         {
@@ -50,6 +53,7 @@ namespace processes
             info.AddValue("Runningtime", RunningTime);
             info.AddValue("Starttime", StartTime);
             info.AddValue("CpuUsage", CpuUsage);
+            info.AddValue("Threads", Threads);
 
 
         }
@@ -62,6 +66,7 @@ namespace processes
             RunningTime = (string)info.GetValue("Runningtime", typeof(string));
             StartTime = (DateTime)info.GetValue("Starttime", typeof(DateTime));
             CpuUsage = (double)info.GetValue("Cpuusage", typeof(double));
+            Threads = (int)info.GetValue("Cpuusage", typeof(int));
 
         }
     }
