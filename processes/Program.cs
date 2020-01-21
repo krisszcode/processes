@@ -1,6 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Xml.Serialization;
+
 
 
 namespace processes
@@ -36,16 +40,38 @@ namespace processes
                                         t.Minutes,
                                         t.Seconds,
                                         t.Milliseconds);
-                        ListOfProcesses.Add(new Proces(theprocess.ProcessName, theprocess.Id, theprocess.WorkingSet64, answer, now));
-                        Console.WriteLine("Process Name: {0} ID: {1} Memory: {2} MB  Start time: {3} Running time: {4}",
-                            theprocess.ProcessName, theprocess.Id, (theprocess.WorkingSet64 / 1024f / 1024f), theprocess.StartTime, answer);
+                        ListOfProcesses.Add(new Proces(theprocess.ProcessName, theprocess.Id, theprocess.WorkingSet64 / 1024f / 1024f, answer, theprocess.StartTime));
+//                        Console.WriteLine("Process Name: {0} ID: {1} Memory: {2} MB  Start time: {3} Running time: {4}",
+//                            theprocess.ProcessName, theprocess.Id, (theprocess.WorkingSet64 / 1024f / 1024f), theprocess.StartTime, answer);
+
+                        
+
                     }
                     catch (Exception)
                     {
 
                         
                     }
-                    
+
+                    using (Stream fs = new FileStream(@"C:\C#\processes\processes\pros.xml", FileMode.Create, FileAccess.Write, FileShare.None))
+                    {
+                        XmlSerializer serializer = new XmlSerializer(typeof(List<Proces>));
+                        serializer.Serialize(fs, ListOfProcesses);
+                    }
+
+                    ListOfProcesses = null;
+
+                    XmlSerializer serializer2 = new XmlSerializer(typeof(List<Proces>));
+
+                    using (FileStream fs2 = File.OpenRead(@"C:\C#\processes\processes\pros.xml"))
+                    {
+                        ListOfProcesses = (List<Proces>)serializer2.Deserialize(fs2);
+                    }
+
+                    foreach (Proces a in ListOfProcesses)
+                    {
+                        Console.WriteLine(a.ToString());
+                    }
 
 
 
