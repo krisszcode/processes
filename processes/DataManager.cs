@@ -18,7 +18,7 @@ namespace processes
 
        public void Save()
         {
-            using (Stream fs = new FileStream(@"C:\C#\processes\processes\pros.xml", FileMode.Create, FileAccess.Write, FileShare.None))
+            using (Stream fs = new FileStream(@"pros.xml", FileMode.Create, FileAccess.Write, FileShare.None))
             {
                 XmlSerializer serializer = new XmlSerializer(typeof(List<Proces>));
                 serializer.Serialize(fs, ListOfProcesses);
@@ -31,7 +31,7 @@ namespace processes
         {
             XmlSerializer serializer2 = new XmlSerializer(typeof(List<Proces>));
 
-            using (FileStream fs2 = File.OpenRead(@"C:\C#\processes\processes\pros.xml"))
+            using (FileStream fs2 = File.OpenRead(@"pros.xml"))
             {
                 ListOfProcesses = (List<Proces>)serializer2.Deserialize(fs2);
             }
@@ -97,12 +97,23 @@ namespace processes
         {
             while (true)
             {
-                GenerateProcesses();
-                Save();
-                Load();
-                ui.PrintOutProcesses();
-                ui.AskForId();
-                Console.Clear();
+                if (File.Exists("pros.xml"))
+                {
+                    Load();
+                    ui.PrintOutProcesses();
+                    ui.AskForId();
+                    Console.Clear();
+                }
+                else
+                {
+                    GenerateProcesses();
+                    Save();
+                    Load();
+                    ui.PrintOutProcesses();
+                    ui.AskForId();
+                    Console.Clear();
+                }
+               
                
 
             }
