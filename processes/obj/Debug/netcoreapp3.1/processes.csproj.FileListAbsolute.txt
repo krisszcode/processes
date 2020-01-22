@@ -42,3 +42,14 @@ C:\Users\Fsociety\Desktop\process\processes\obj\Debug\netcoreapp3.1\processes.As
 C:\Users\Fsociety\Desktop\process\processes\obj\Debug\netcoreapp3.1\processes.AssemblyInfo.cs
 C:\Users\Fsociety\Desktop\process\processes\obj\Debug\netcoreapp3.1\processes.dll
 C:\Users\Fsociety\Desktop\process\processes\obj\Debug\netcoreapp3.1\processes.pdb
+C:\Users\feren\OneDrive\Asztali gép\asdasdasdas\processes\bin\Debug\netcoreapp3.1\processes.exe
+C:\Users\feren\OneDrive\Asztali gép\asdasdasdas\processes\bin\Debug\netcoreapp3.1\processes.deps.json
+C:\Users\feren\OneDrive\Asztali gép\asdasdasdas\processes\bin\Debug\netcoreapp3.1\processes.runtimeconfig.json
+C:\Users\feren\OneDrive\Asztali gép\asdasdasdas\processes\bin\Debug\netcoreapp3.1\processes.runtimeconfig.dev.json
+C:\Users\feren\OneDrive\Asztali gép\asdasdasdas\processes\bin\Debug\netcoreapp3.1\processes.dll
+C:\Users\feren\OneDrive\Asztali gép\asdasdasdas\processes\bin\Debug\netcoreapp3.1\processes.pdb
+C:\Users\feren\OneDrive\Asztali gép\asdasdasdas\processes\obj\Debug\netcoreapp3.1\processes.csprojAssemblyReference.cache
+C:\Users\feren\OneDrive\Asztali gép\asdasdasdas\processes\obj\Debug\netcoreapp3.1\processes.AssemblyInfoInputs.cache
+C:\Users\feren\OneDrive\Asztali gép\asdasdasdas\processes\obj\Debug\netcoreapp3.1\processes.AssemblyInfo.cs
+C:\Users\feren\OneDrive\Asztali gép\asdasdasdas\processes\obj\Debug\netcoreapp3.1\processes.dll
+C:\Users\feren\OneDrive\Asztali gép\asdasdasdas\processes\obj\Debug\netcoreapp3.1\processes.pdb

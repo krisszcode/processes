@@ -25,7 +25,7 @@ namespace processes
 
       
 
-        public Proces AskForId(List<Proces> ListOfProcesses)
+        public List<Proces> AskForId(List<Proces> ListOfProcesses)
         {
             TimeSpan ts = new TimeSpan(0, 0, 2);
 
@@ -50,10 +50,12 @@ namespace processes
                                 Console.WriteLine("Comment added!");
 
                                 Thread.Sleep(ts);
-                                return process;
-                            }
-                   
+                        return data.CommentedList;
                     }
+                    
+                    
+
+                }
                       
 
                 }
@@ -61,11 +63,14 @@ namespace processes
                 else if (userdecide == "no" || userdecide == "No")
                 {
                     Console.WriteLine("Closing program...");
-                    Environment.Exit(0);
-                }
+                
+
+                Environment.Exit(0);
+            }
             
 
-            }
+            throw new Exception();
+        }
           
         }
     }

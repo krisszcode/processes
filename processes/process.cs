@@ -46,7 +46,9 @@ namespace processes
 
         public override string ToString()
         {
-            return string.Format($"{ProcessName} {ProcessId} {MemoryUsage} {RunningTime} {StartTime} {CpuUsage} {Threads} {Comment}");
+            return string.Format($"{Environment.NewLine} Name : {ProcessName}{Environment.NewLine} ID: {ProcessId}{Environment.NewLine} Memory usage: {MemoryUsage}{Environment.NewLine} " +
+                $"Running time: {RunningTime}{Environment.NewLine} Start time: {StartTime}{Environment.NewLine} " +
+                $"CPU usage: {CpuUsage}{Environment.NewLine} Threads: {Threads}{Environment.NewLine} Comment: {Comment}{Environment.NewLine}");
         }
         public void GetObjectData(SerializationInfo info, StreamingContext context)
         {
