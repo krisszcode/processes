@@ -17,24 +17,33 @@ namespace processes
         {
             UserInterface ui = new UserInterface();
             DataManager data = new DataManager();
-
-            while (true)
+            if (File.Exists(@"C:\Users\Fsociety\Desktop\process\processes\CommentedProcesses.xml"))
             {
-               
-                
-                
-                
-                    data.GenerateProcesses();
+                data.Load();
+                data.GenerateProcesses();
+                while (true)
+                {
+
+                    ui.PrintOutProcesses(data.ListOfProcesses);
+                   data.CommentedList = ui.AskForId(data.ListOfProcesses);
                    
+                    data.Save(data.CommentedList);
+
+                }
+            }
+            else
+            {
+                data.GenerateProcesses();
+                while (true)
+                {
+
                     ui.PrintOutProcesses(data.ListOfProcesses);
                     ui.AskForId(data.ListOfProcesses);
-                    data.Save();
-                    
-                    
-               
+                    data.Save(data.CommentedList);
 
-
+                }
             }
+            
 
 
         }

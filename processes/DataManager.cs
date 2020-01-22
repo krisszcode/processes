@@ -17,7 +17,7 @@ namespace processes
         public List<Proces> CommentedList = new List<Proces>();
 
 
-        public void Save()
+        public void Save(List<Proces> CommentedList)
         {
             using (Stream fs = new FileStream(@"C:\Users\Fsociety\Desktop\process\processes\CommentedProcesses.xml", FileMode.Create, FileAccess.Write, FileShare.None))
             {
@@ -28,7 +28,15 @@ namespace processes
         }
 
 
+        public void Load()
+        {
+            XmlSerializer serializer2 = new XmlSerializer(typeof(List<Proces>));
 
+            using(FileStream fs2 = File.OpenRead(@"C:\Users\Fsociety\Desktop\process\processes\CommentedProcesses.xml"))
+            {
+                CommentedList = (List<Proces>)serializer2.Deserialize(fs2);
+            }
+        }
       
 
 

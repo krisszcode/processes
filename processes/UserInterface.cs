@@ -1,7 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace processes
 {
@@ -21,7 +25,7 @@ namespace processes
 
       
 
-        public void AskForId(List<Proces> ListOfProcesses)
+        public Proces AskForId(List<Proces> ListOfProcesses)
         {
             TimeSpan ts = new TimeSpan(0, 0, 2);
 
@@ -42,11 +46,12 @@ namespace processes
                                 string userinputcomment = Console.ReadLine();
                                 process.Comment = userinputcomment;
                                 data.CommentedList.Add(process);
+                                 
                                 Console.WriteLine("Comment added!");
 
                                 Thread.Sleep(ts);
-                                
-                               }
+                                return process;
+                            }
                    
                     }
                       
@@ -58,6 +63,7 @@ namespace processes
                     Console.WriteLine("Closing program...");
                     Environment.Exit(0);
                 }
+            
 
             }
           
