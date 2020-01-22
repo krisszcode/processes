@@ -31,3 +31,14 @@ C:\C#\processes\processes\obj\Debug\netcoreapp3.1\processes.AssemblyInfo.cs
 C:\C#\processes\processes\obj\Debug\netcoreapp3.1\processes.dll
 C:\C#\processes\processes\obj\Debug\netcoreapp3.1\processes.pdb
 C:\C#\processes\processes\obj\Debug\netcoreapp3.1\processes.csprojAssemblyReference.cache
+C:\Users\Fsociety\Desktop\process\processes\bin\Debug\netcoreapp3.1\processes.exe
+C:\Users\Fsociety\Desktop\process\processes\bin\Debug\netcoreapp3.1\processes.deps.json
+C:\Users\Fsociety\Desktop\process\processes\bin\Debug\netcoreapp3.1\processes.runtimeconfig.json
+C:\Users\Fsociety\Desktop\process\processes\bin\Debug\netcoreapp3.1\processes.runtimeconfig.dev.json
+C:\Users\Fsociety\Desktop\process\processes\bin\Debug\netcoreapp3.1\processes.dll
+C:\Users\Fsociety\Desktop\process\processes\bin\Debug\netcoreapp3.1\processes.pdb
+C:\Users\Fsociety\Desktop\process\processes\obj\Debug\netcoreapp3.1\processes.csprojAssemblyReference.cache
+C:\Users\Fsociety\Desktop\process\processes\obj\Debug\netcoreapp3.1\processes.AssemblyInfoInputs.cache
+C:\Users\Fsociety\Desktop\process\processes\obj\Debug\netcoreapp3.1\processes.AssemblyInfo.cs
+C:\Users\Fsociety\Desktop\process\processes\obj\Debug\netcoreapp3.1\processes.dll
+C:\Users\Fsociety\Desktop\process\processes\obj\Debug\netcoreapp3.1\processes.pdb
