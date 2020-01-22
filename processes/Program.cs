@@ -20,28 +20,18 @@ namespace processes
 
             while (true)
             {
-                if (File.Exists(@"C:\Users\Fsociety\Desktop\process\processes\pos.xml"))
-                {
-                    data.Load();
-                    ui.PrintOutProcesses();
-                    ui.AskForId();
-                    Console.Clear();
-                }
-                else
-                {
+               
+                
+                
+                
                     data.GenerateProcesses();
-                    foreach (var item in data.ListOfProcesses)
-                    {
-                        Console.WriteLine("1");
-                        Console.WriteLine(item);
-                    }
+                   
+                    ui.PrintOutProcesses(data.ListOfProcesses);
+                    ui.AskForId(data.ListOfProcesses);
                     data.Save();
-                    data.Load();
-                    ui.PrintOutProcesses();
-                    ui.AskForId();
-                    Console.Clear();
-                }
-
+                    
+                    
+               
 
 
             }

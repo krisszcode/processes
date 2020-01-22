@@ -9,62 +9,47 @@ namespace processes
     {
        
         DataManager data = new DataManager();
-       public void PrintOutProcesses()
+
+       public void PrintOutProcesses(List<Proces> ListOfProcesses)
         {
-            foreach (Proces a in data.ListOfProcesses)
+            foreach (Proces proc in ListOfProcesses)
             {
-                Console.WriteLine(a.ToString());
+                Console.WriteLine(proc.ToString());
             }
 
         }
 
-        public void AddComment(int ID, string comment)
-        {
-            foreach (Proces process in data.ListOfProcesses)
-            {
-                if (ID == process.ProcessId)
-                {
-                    process.Comment = comment;
-                }
-            }
+      
 
-        }
-
-        public void AskForId()
+        public void AskForId(List<Proces> ListOfProcesses)
         {
             TimeSpan ts = new TimeSpan(0, 0, 2);
 
             Console.WriteLine("Do you want to add a comment to a process?[yes/no]: ");
             string userdecide = Console.ReadLine();
-            try
-            {
+            
                 if (userdecide == "yes" || userdecide == "Yes")
                 {
 
                     Console.WriteLine("If you want to a process please give me an ID from the list: ");
                     int userinput = Convert.ToInt32(Console.ReadLine());
-                    foreach (Proces process in data.ListOfProcesses)
+                    foreach (Proces process in ListOfProcesses)
                     {
-                        try
-                        {
+                        
                             if (process.ProcessId == userinput)
                             {
                                 Console.WriteLine("Please enter a comment: ");
                                 string userinputcomment = Console.ReadLine();
-                                AddComment(userinput, userinputcomment);
+                                process.Comment = userinputcomment;
+                                data.CommentedList.Add(process);
                                 Console.WriteLine("Comment added!");
 
                                 Thread.Sleep(ts);
-                                data.Save();
-                            }
-                        }
-                        catch (System.FormatException)
-                        {
-                            Console.WriteLine("There is no such process with that ID! Try again.");
-                            Thread.Sleep(ts);
-                        }
-
+                                
+                               }
+                   
                     }
+                      
 
                 }
 
@@ -75,11 +60,7 @@ namespace processes
                 }
 
             }
-                 catch (System.FormatException)
-            {
-                Console.WriteLine("Wrong input! Try again.");
-                Thread.Sleep(ts);
-            }
+          
         }
     }
-}
+

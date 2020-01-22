@@ -14,34 +14,28 @@ namespace processes
 
         public List<Proces> ListOfProcesses = new List<Proces>();
        
-       
+        public List<Proces> CommentedList = new List<Proces>();
 
 
-       public void Save()
+        public void Save()
         {
-            using (Stream fs = new FileStream(@"C:\Users\Fsociety\Desktop\process\processes\pos.xml", FileMode.Create, FileAccess.Write, FileShare.None))
+            using (Stream fs = new FileStream(@"C:\Users\Fsociety\Desktop\process\processes\CommentedProcesses.xml", FileMode.Create, FileAccess.Write, FileShare.None))
             {
                 XmlSerializer serializer = new XmlSerializer(typeof(List<Proces>));
-                serializer.Serialize(fs, ListOfProcesses);
+                serializer.Serialize(fs, CommentedList);
             }
+            
         }
 
 
 
-        public void Load()
+      
+
+
+
+        public List<Proces> GenerateProcesses()
         {
-            XmlSerializer serializer2 = new XmlSerializer(typeof(List<Proces>));
-
-            using (FileStream fs2 = File.OpenRead(@"C:\Users\Fsociety\Desktop\process\processes\pos.xml"))
-            {
-                ListOfProcesses = (List<Proces>)serializer2.Deserialize(fs2);
-            }
-        }
-
-
-
-        public void GenerateProcesses()
-        {
+            Console.WriteLine("Generating running processes, please wait...");
             async Task<double> GetCpuUsageForProcess(Process theprocess)
             {
                 var startTime = DateTime.UtcNow;
@@ -68,7 +62,7 @@ namespace processes
                 {
                     try
                     {
-
+                      
                         var result = GetCpuUsageForProcess(theprocess);
                         double CpuUsage = Math.Round(result.Result, 2);
 
@@ -94,6 +88,8 @@ namespace processes
 
                 }
             }
+            Console.WriteLine("Done!");
+            return ListOfProcesses;
         }
 
         

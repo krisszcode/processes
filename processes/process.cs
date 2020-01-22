@@ -19,9 +19,9 @@ namespace processes
 
         public double CpuUsage { get; set; }
         public int Threads { get; set; }
-        public string? Comment { get; set; }
+        public string Comment { get; set; }
 
-
+        
         public Proces() { }
 
         public Proces(string processName = "No Name",
@@ -31,7 +31,7 @@ namespace processes
             DateTime startTime = default(DateTime),
             double cpuUsage = 0,
             int threads = 0,
-            string? comment = null
+            string comment = ""
             )
         {
             ProcessName = processName;
