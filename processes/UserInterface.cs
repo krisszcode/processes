@@ -7,6 +7,7 @@ namespace processes
 {
     class UserInterface
     {
+       
         DataManager data = new DataManager();
        public void PrintOutProcesses()
         {
@@ -31,42 +32,54 @@ namespace processes
 
         public void AskForId()
         {
+            TimeSpan ts = new TimeSpan(0, 0, 2);
+
             Console.WriteLine("Do you want to add a comment to a process?[yes/no]: ");
             string userdecide = Console.ReadLine();
-
-            if (userdecide == "yes" || userdecide == "Yes")
+            try
             {
-                Console.WriteLine("If you want to a process please give me an ID from the list: ");
-                int userinput = Convert.ToInt32(Console.ReadLine());
-                foreach (Proces process in data.ListOfProcesses)
+                if (userdecide == "yes" || userdecide == "Yes")
                 {
-                    if (process.ProcessId == userinput)
+
+                    Console.WriteLine("If you want to a process please give me an ID from the list: ");
+                    int userinput = Convert.ToInt32(Console.ReadLine());
+                    foreach (Proces process in data.ListOfProcesses)
                     {
-                        Console.WriteLine("Please enter a comment: ");
-                        string userinputcomment = Console.ReadLine();
-                        AddComment(userinput, userinputcomment);
-                        Console.WriteLine("Comment added!");
-                        TimeSpan ts = new TimeSpan(0, 0, 5);
+                        try
+                        {
+                            if (process.ProcessId == userinput)
+                            {
+                                Console.WriteLine("Please enter a comment: ");
+                                string userinputcomment = Console.ReadLine();
+                                AddComment(userinput, userinputcomment);
+                                Console.WriteLine("Comment added!");
 
-                        Thread.Sleep(ts);
-                        data.Save();
+                                Thread.Sleep(ts);
+                                data.Save();
+                            }
+                        }
+                        catch (System.FormatException)
+                        {
+                            Console.WriteLine("There is no such process with that ID! Try again.");
+                            Thread.Sleep(ts);
+                        }
+
                     }
-                    Console.WriteLine("There is no such process with that ID! Try again.");
+
                 }
-            }
-            else if(userdecide == "no" || userdecide == "No")
-            {
-                Console.WriteLine("Closing program...");
-                Environment.Exit(0);
-            }
-            else
-            {
-                throw new Exception("Wrong input");
-            }
-            
 
+                else if (userdecide == "no" || userdecide == "No")
+                {
+                    Console.WriteLine("Closing program...");
+                    Environment.Exit(0);
+                }
 
+            }
+                 catch (System.FormatException)
+            {
+                Console.WriteLine("Wrong input! Try again.");
+                Thread.Sleep(ts);
+            }
         }
-
     }
 }
