@@ -45,7 +45,7 @@ namespace processes
                 if (theprocess.ProcessName.Length > 0)
                 {
                     try
-                    {
+                    {   
                         
                         var result = GetCpuUsageForProcess(theprocess);
                         double CpuUsage = Math.Round(result.Result, 2);
