@@ -17,7 +17,7 @@ namespace processes
         {
             UserInterface ui = new UserInterface();
             DataManager data = new DataManager();
-            if (File.Exists(@"C:\Users\feren\OneDrive\Asztali gép\asdasdasdas\processes\CommentedProcesses.xml"))
+            if (File.Exists(@"C:\Users\Fsociety\Desktop\processes\processes\CommentedProcesses.xml"))
             {
                 data.Load();
                 data.GenerateProcesses();
@@ -25,8 +25,8 @@ namespace processes
                 {
 
                     ui.PrintOutProcesses(data.ListOfProcesses);
-                   data.CommentedList = ui.AskForId(data.ListOfProcesses);
-                   
+                    data.CommentedList.Add(ui.AskForId(data.ListOfProcesses));
+
                     data.Save(data.CommentedList);
 
                 }
@@ -38,7 +38,7 @@ namespace processes
                 {
 
                     ui.PrintOutProcesses(data.ListOfProcesses);
-                    data.CommentedList = ui.AskForId(data.ListOfProcesses);
+                    data.CommentedList.Add(ui.AskForId(data.ListOfProcesses));
 
                     data.Save(data.CommentedList);
 

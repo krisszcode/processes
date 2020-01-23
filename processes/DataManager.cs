@@ -19,7 +19,7 @@ namespace processes
 
         public void Save(List<Proces> CommentedList)
         {
-            using (Stream fs = new FileStream(@"C:\Users\feren\OneDrive\Asztali gép\asdasdasdas\processes\CommentedProcesses.xml", FileMode.Create, FileAccess.Write, FileShare.None))
+            using (Stream fs = new FileStream(@"C:\Users\Fsociety\Desktop\processes\processes\CommentedProcesses.xml", FileMode.Create, FileAccess.Write, FileShare.None))
             {
                 XmlSerializer serializer = new XmlSerializer(typeof(List<Proces>));
                 serializer.Serialize(fs, CommentedList);
@@ -32,7 +32,7 @@ namespace processes
         {
             XmlSerializer serializer2 = new XmlSerializer(typeof(List<Proces>));
 
-            using(FileStream fs2 = File.OpenRead(@"C:\Users\feren\OneDrive\Asztali gép\asdasdasdas\processes\CommentedProcesses.xml"))
+            using(FileStream fs2 = File.OpenRead(@"C:\Users\Fsociety\Desktop\processes\processes\CommentedProcesses.xml"))
             {
                 CommentedList = (List<Proces>)serializer2.Deserialize(fs2);
             }

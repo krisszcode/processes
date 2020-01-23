@@ -8,23 +8,23 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\feren\\.nuget\\packages\\": {},
+    "C:\\Users\\Fsociety\\.nuget\\packages\\": {},
     "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\feren\\OneDrive\\Asztali gép\\asdasdasdas\\processes\\processes.csproj",
+      "projectUniqueName": "C:\\Users\\Fsociety\\Desktop\\processes\\processes\\processes.csproj",
       "projectName": "processes",
-      "projectPath": "C:\\Users\\feren\\OneDrive\\Asztali gép\\asdasdasdas\\processes\\processes.csproj",
-      "packagesPath": "C:\\Users\\feren\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\feren\\OneDrive\\Asztali gép\\asdasdasdas\\processes\\obj\\",
+      "projectPath": "C:\\Users\\Fsociety\\Desktop\\processes\\processes\\processes.csproj",
+      "packagesPath": "C:\\Users\\Fsociety\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Fsociety\\Desktop\\processes\\processes\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\feren\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Fsociety\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -63,7 +63,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

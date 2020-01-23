@@ -25,7 +25,7 @@ namespace processes
 
       
 
-        public List<Proces> AskForId(List<Proces> ListOfProcesses)
+        public Proces AskForId(List<Proces> ListOfProcesses)
         {
             TimeSpan ts = new TimeSpan(0, 0, 2);
 
@@ -45,12 +45,12 @@ namespace processes
                                 Console.WriteLine("Please enter a comment: ");
                                 string userinputcomment = Console.ReadLine();
                                 process.Comment = userinputcomment;
-                                data.CommentedList.Add(process);
+                                
                                  
                                 Console.WriteLine("Comment added!");
 
                                 Thread.Sleep(ts);
-                        return data.CommentedList;
+                        return process;
                     }
                     
                     
