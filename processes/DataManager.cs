@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
@@ -43,7 +44,14 @@ namespace processes
 
         public List<Proces> GenerateProcesses()
         {
-            Console.WriteLine("Generating running processes, please wait...");
+            Console.WriteLine("Generating running processes, please wait...\n");
+            Console.WriteLine("It will take some time unfortunately, so while generating, here is a coding interview question to solve on a paper: " +
+                    "\nGiven a string containing just the characters '(' and ')',\n" +
+                    "find the length of the longest valid (well-formed) parentheses substring.\n\n" +
+                    "Input: (()\nOutput: 2 \nExplanation: The longest valid parentheses substring is () " +
+                    "\n\nYou can use Python3,C#,Java to solve it.");
+
+
             async Task<double> GetCpuUsageForProcess(Process theprocess)
             {
                 var startTime = DateTime.UtcNow;
@@ -96,7 +104,9 @@ namespace processes
 
                 }
             }
-            Console.WriteLine("Done!");
+            Console.WriteLine("\nGenerating done!");
+            TimeSpan ts = new TimeSpan(0, 0, 4);
+            Thread.Sleep(ts);
             return ListOfProcesses;
         }
 
