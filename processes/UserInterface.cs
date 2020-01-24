@@ -33,6 +33,7 @@ namespace processes
                     proc.Kill();
                     
                 }
+               
             }
         }
 
@@ -87,8 +88,17 @@ namespace processes
             else if(userdecided == "kill" || userdecided == "Kill" || userdecided == "KILL")
             {
                 Console.WriteLine("If you want to kill a process please give me a name from the list: ");
-                string userinput = Console.ReadLine();
-                KillProcess(userinput);
+                try
+                {
+                    string userinput = Console.ReadLine();
+                    KillProcess(userinput);
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("You cant kill this process");
+                   
+                }
+                
             }
             else if (userdecided == "Quit" || userdecided == "quit" || userdecided == "QUIT")
             {
